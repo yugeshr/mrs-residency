@@ -132,10 +132,16 @@
         "caption": "Lift access between floors"
       },
       {
-        "src": "assets/images/IMG-20230507-WA0015.jpg",
+        "src": "assets/uploads/1789808129582-mrs-hall-way.png",
         "alt": "Well-lit guest corridor inside MRS Residency",
         "label": "Interior",
         "caption": "Simple, well-lit common spaces"
+      },
+      {
+        "src": "assets/uploads/1789808239870-stair-mrs.png",
+        "alt": "Stairs ",
+        "label": "Hotel Interior",
+        "caption": "MRS Residency"
       }
     ]
   },
