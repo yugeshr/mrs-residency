@@ -92,9 +92,19 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
 .room-price strong { font: 500 26px/1.2 Georgia, serif; }
 .room-list { padding: 12px 8px 4px 28px; display: flex; flex-direction: column; }
 .room-list article { padding: 27px 0; display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); }
-.room-list h3 { margin-bottom: 5px; font-size: 18px; }
-.room-list p { margin: 0; color: var(--muted); font-size: 13px; }
+.room-list article h3 { margin-bottom: 5px; font-size: 18px; }
+.room-list article p { margin: 0; color: var(--muted); font-size: 13px; }
 .room-list article > strong { white-space: nowrap; font: 500 20px/1.4 Georgia, serif; }
+.room-option { width: 100%; padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; border: 0; border-bottom: 1px solid var(--line); color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; transition: color .2s ease, padding .2s ease; }
+.room-option:hover { padding-left: 8px; color: var(--brand); }
+.room-option:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.room-option[aria-pressed="true"] { color: var(--brand); }
+.room-option-name, .room-option-description, .room-option-rate { display: block; }
+.room-option-name { margin-bottom: 5px; font-size: 18px; }
+.room-option-description { color: var(--muted); font-size: 13px; }
+.room-option-rate { white-space: nowrap; text-align: right; }
+.room-option-rate > strong { display: block; font: 500 20px/1.4 Georgia, serif; }
+.room-option-rate small { color: var(--brand); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .room-list .button { margin-top: auto; }
 .rate-note { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
 

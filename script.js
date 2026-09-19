@@ -83,22 +83,39 @@ function applySiteContent(content) {
   setText('.rooms .section-kicker', rooms.kicker);
   setText('.rooms .section-heading h2', rooms.title);
   setText('.rooms .section-heading > p', rooms.description);
-  const featuredRoom = rooms.items.find((room) => room.featured) || rooms.items[0];
   const roomLayout = document.querySelector('.room-layout');
-  if (featuredRoom) {
+  const initialRoomIndex = rooms.items.findIndex((room) => room.featured);
+  if (rooms.items.length) {
     roomLayout.hidden = false;
     const roomImage = document.querySelector('.room-feature img');
-    roomImage.src = featuredRoom.image;
-    roomImage.alt = featuredRoom.imageAlt;
-    setText('.room-feature h3', featuredRoom.name);
-    setText('.room-price strong', featuredRoom.price);
-    const otherRooms = rooms.items.filter((room) => room !== featuredRoom);
-    document.querySelector('.room-list').innerHTML = `${otherRooms.map((room) => `<article>
-      <div><h3>${escapeHtml(room.name)}</h3><p>${escapeHtml(room.description)}</p></div>
-      <strong>${escapeHtml(room.price)}</strong>
-    </article>`).join('')}
-    <a class="button button-dark" href="${escapeHtml(hotel.bookingUrl)}" target="_blank" rel="noopener">View availability</a>
-    <p class="rate-note">${escapeHtml(rooms.rateNote)}</p>`;
+    const roomList = document.querySelector('.room-list');
+    const renderSelectedRoom = (selectedIndex) => {
+      const selectedRoom = rooms.items[selectedIndex];
+      if (!selectedRoom) return;
+
+      roomImage.src = selectedRoom.image;
+      roomImage.alt = selectedRoom.imageAlt;
+      setText('.room-label', selectedRoom.featured ? 'Featured room' : 'Selected room');
+      setText('.room-feature h3', selectedRoom.name);
+      setText('.room-price strong', selectedRoom.price);
+
+      if (!reducedMotion && roomImage.animate) {
+        roomImage.animate([{ opacity: 0.45 }, { opacity: 1 }], { duration: 280, easing: 'ease-out' });
+      }
+
+      roomList.innerHTML = `${rooms.items.map((room, index) => `<button class="room-option" type="button" data-room-index="${index}" aria-pressed="${index === selectedIndex}">
+        <span><strong class="room-option-name">${escapeHtml(room.name)}</strong><span class="room-option-description">${escapeHtml(room.description)}</span></span>
+        <span class="room-option-rate"><strong>${escapeHtml(room.price)}</strong>${index === selectedIndex ? '<small>Viewing</small>' : ''}</span>
+      </button>`).join('')}
+      <a class="button button-dark" href="${escapeHtml(hotel.bookingUrl)}" target="_blank" rel="noopener">View availability</a>
+      <p class="rate-note">${escapeHtml(rooms.rateNote)}</p>`;
+
+      roomList.querySelectorAll('.room-option').forEach((option) => {
+        option.addEventListener('click', () => renderSelectedRoom(Number(option.dataset.roomIndex)));
+      });
+    };
+
+    renderSelectedRoom(initialRoomIndex >= 0 ? initialRoomIndex : 0);
   } else {
     roomLayout.hidden = true;
   }
