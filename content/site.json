@@ -25,16 +25,30 @@
     "image": "assets/madurai-temple.jpg",
     "imageAlt": "Meenakshi Amman Temple in Madurai",
     "facts": [
-      { "value": "8 min", "label": "Walk to Meenakshi Temple" },
-      { "value": "7 min", "label": "Walk to Madurai Junction" },
-      { "value": "24/7", "label": "Front desk support" }
+      {
+        "value": "8 min",
+        "label": "Walk to Meenakshi Temple"
+      },
+      {
+        "value": "7 min",
+        "label": "Walk to Madurai Junction"
+      },
+      {
+        "value": "24/7",
+        "label": "Front desk support"
+      }
     ]
   },
   "intro": {
     "kicker": "A simple, restful stay",
     "title": "Madurai at your doorstep.\nQuiet comfort inside.",
     "description": "Set in the heart of the city, MRS Residency makes short stays, temple visits and business trips feel easy. Choose the room that suits your plans, then leave the rest to our team.",
-    "highlights": ["Free Wi-Fi", "Room service", "Lift access", "Power backup"]
+    "highlights": [
+      "Free Wi-Fi",
+      "Room service",
+      "Lift access",
+      "Power backup"
+    ]
   },
   "rooms": {
     "kicker": "Rooms",
@@ -54,7 +68,7 @@
         "name": "Non-Deluxe AC",
         "description": "Air-conditioned · 2 guests · City view",
         "price": "₹1,300",
-        "image": "assets/images/IMG-20230507-WA0009.jpg",
+        "image": "assets/uploads/1789805531921-non-d-roo-m.png",
         "imageAlt": "Air-conditioned guest room at MRS Residency",
         "featured": false
       },
@@ -81,13 +95,48 @@
     "title": "See your stay.",
     "description": "Take a look at our rooms, shared spaces and central Madurai location.",
     "images": [
-      { "src": "assets/images/IMG-20230507-WA0060.jpg", "alt": "Front exterior of the MRS Residency building", "label": "Exterior", "caption": "Easy to find in central Madurai" },
-      { "src": "assets/images/IMG-20230507-WA0012.jpg", "alt": "Air-conditioned double room with seating", "label": "Guest room", "caption": "Double room with air conditioning" },
-      { "src": "assets/images/IMG-20230507-WA0011.jpg", "alt": "Twin guest room with two beds and a ceiling fan", "label": "Guest room", "caption": "Flexible twin-bed comfort" },
-      { "src": "assets/images/IMG-20230507-WA0013.jpg", "alt": "Guest room television, mirror, wardrobe and seating", "label": "Room amenities", "caption": "Practical essentials within reach" },
-      { "src": "assets/images/IMG-20230507-WA0058.jpg", "alt": "Reception lounge and seating area at MRS Residency", "label": "Reception", "caption": "A welcoming place to arrive" },
-      { "src": "assets/images/IMG-20230507-WA0059.jpg", "alt": "Guest lift at MRS Residency", "label": "Access", "caption": "Lift access between floors" },
-      { "src": "assets/images/IMG-20230507-WA0015.jpg", "alt": "Well-lit guest corridor inside MRS Residency", "label": "Interior", "caption": "Simple, well-lit common spaces" }
+      {
+        "src": "assets/images/IMG-20230507-WA0060.jpg",
+        "alt": "Front exterior of the MRS Residency building",
+        "label": "Exterior",
+        "caption": "Easy to find in central Madurai"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0012.jpg",
+        "alt": "Air-conditioned double room with seating",
+        "label": "Guest room",
+        "caption": "Double room with air conditioning"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0011.jpg",
+        "alt": "Twin guest room with two beds and a ceiling fan",
+        "label": "Guest room",
+        "caption": "Flexible twin-bed comfort"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0013.jpg",
+        "alt": "Guest room television, mirror, wardrobe and seating",
+        "label": "Room amenities",
+        "caption": "Practical essentials within reach"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0058.jpg",
+        "alt": "Reception lounge and seating area at MRS Residency",
+        "label": "Reception",
+        "caption": "A welcoming place to arrive"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0059.jpg",
+        "alt": "Guest lift at MRS Residency",
+        "label": "Access",
+        "caption": "Lift access between floors"
+      },
+      {
+        "src": "assets/images/IMG-20230507-WA0015.jpg",
+        "alt": "Well-lit guest corridor inside MRS Residency",
+        "label": "Interior",
+        "caption": "Simple, well-lit common spaces"
+      }
     ]
   },
   "amenities": {
@@ -95,10 +144,26 @@
     "title": "Comfort, covered.",
     "description": "Thoughtful essentials for a smooth stay, whether you are here for a night or a little longer.",
     "items": [
-      { "title": "24-hour front desk", "description": "Help whenever your journey brings you in." },
-      { "title": "Hot water & room service", "description": "Everyday comfort, available when you need it." },
-      { "title": "Free Wi-Fi & power backup", "description": "Stay connected without the fuss." },
-      { "title": "Lift & luggage storage", "description": "Easier arrivals, departures and day trips." }
+      {
+        "title": "24-hour front desk",
+        "description": "Help whenever your journey brings you in."
+      },
+      {
+        "title": "Hot water & room service",
+        "description": "Everyday comfort, available when you need it."
+      },
+      {
+        "title": "Free Wi-Fi & power backup",
+        "description": "Stay connected without the fuss."
+      },
+      {
+        "title": "Lift & luggage storage",
+        "description": "Easier arrivals, departures and day trips."
+      },
+      {
+        "title": " AC Rooms",
+        "description": "Air condition rooms available"
+      }
     ]
   },
   "location": {
@@ -108,10 +173,22 @@
     "imageAlt": "Street-facing exterior of MRS Residency in central Madurai",
     "badge": "In the heart of Madurai",
     "distances": [
-      { "place": "Meenakshi Amman Temple", "distance": "8 min walk" },
-      { "place": "Periyar Bus Stand", "distance": "3 min walk" },
-      { "place": "Madurai Junction", "distance": "7 min walk" },
-      { "place": "Thirumalai Nayakkar Mahal", "distance": "2 km" }
+      {
+        "place": "Meenakshi Amman Temple",
+        "distance": "8 min walk"
+      },
+      {
+        "place": "Periyar Bus Stand",
+        "distance": "3 min walk"
+      },
+      {
+        "place": "Madurai Junction",
+        "distance": "7 min walk"
+      },
+      {
+        "place": "Thirumalai Nayakkar Mahal",
+        "distance": "2 km"
+      }
     ]
   },
   "faq": {
