@@ -60,7 +60,7 @@
         "name": "Deluxe AC Room",
         "description": "Air-conditioned · 2 guests · City view",
         "price": "₹1,400",
-        "image": "assets/images/IMG-20230507-WA0012.jpg",
+        "image": "assets/uploads/1789807839607-mrs-non-del.png",
         "imageAlt": "Deluxe air-conditioned double room at MRS Residency",
         "featured": true
       },
@@ -76,7 +76,7 @@
         "name": "Deluxe Non-AC",
         "description": "Spacious room · 2 guests · City view",
         "price": "₹900",
-        "image": "assets/images/IMG-20230507-WA0011.jpg",
+        "image": "assets/uploads/1789807857626-mrs-del.png",
         "imageAlt": "Twin guest room at MRS Residency",
         "featured": false
       },
@@ -84,7 +84,7 @@
         "name": "Non-Deluxe Non-AC",
         "description": "Essential comfort · 2 guests · City view",
         "price": "₹800",
-        "image": "assets/images/IMG-20230507-WA0013.jpg",
+        "image": "assets/uploads/1789807866988-non-del-room-2.png",
         "imageAlt": "Guest room with television and wardrobe at MRS Residency",
         "featured": false
       }
