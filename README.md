@@ -1,14 +1,46 @@
 # MRS Residency Madurai
 
-A lightweight, responsive marketing website for MRS Residency in Madurai.
+A responsive hotel website with a secure, GitHub-backed content management system.
 
-## Structure
+## Website
 
-- `dist/index.html` — page content and SEO metadata
-- `dist/styles.css` — responsive layout, visual system and motion
-- `dist/script.js` — mobile navigation and scroll reveals
-- `dist/robots.txt` and `dist/sitemap.xml` — search-engine discovery
+The public website is built with HTML, CSS and JavaScript. Editable content lives in `content/site.json`, while the page keeps embedded fallback content for fast, reliable loading.
 
-## Deployment
+## Admin CMS
 
-The project is configured as a static site for Vercel. Deploy the repository root; Vercel serves the `dist` directory.
+Visit `/admin` on the deployed website to manage:
+
+- Hotel and contact details
+- Hero and introduction sections
+- Rooms, prices and featured-room selection
+- Gallery images and captions
+- Amenities
+- Location details and nearby landmarks
+- Final booking call to action
+
+The CMS uses an HTTP-only signed session cookie. Credentials and repository access are read from deployment environment variables and are never stored in the browser or repository.
+
+When an admin saves content, the serverless API updates `content/site.json` in GitHub. Image uploads are written to `assets/uploads/`. Each GitHub commit triggers a new Vercel deployment.
+
+## Vercel environment variables
+
+Copy the names in `.env.example` into the Vercel project's environment settings:
+
+- `ADMIN_USERNAME`: the CMS login username
+- `ADMIN_PASSWORD`: a long, unique CMS password
+- `SESSION_SECRET`: at least 32 random characters used to sign sessions
+- `GITHUB_TOKEN`: a fine-grained GitHub token with Contents read/write access to this repository
+- `GITHUB_REPO`: `yugeshr/mrs-residency`
+- `GITHUB_BRANCH`: `main`
+
+Generate a session secret in PowerShell:
+
+```powershell
+[Convert]::ToBase64String([Security.Cryptography.RandomNumberGenerator]::GetBytes(48))
+```
+
+For the GitHub token, grant access only to `yugeshr/mrs-residency` and enable **Repository permissions → Contents → Read and write**.
+
+## Development
+
+The public site can be previewed with any static file server. The authentication, save and upload endpoints use Vercel Functions, so run `vercel dev` when testing the full CMS locally.

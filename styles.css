@@ -57,6 +57,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-
 .hero .eyebrow { color: #f1d9b0; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.035em; line-height: .98; }
+h1, .intro h2, .location-copy h2 { white-space: pre-line; }
 h1 { max-width: 880px; margin-bottom: 28px; font-size: clamp(56px, 8vw, 108px); }
 .hero-copy { max-width: 590px; margin-bottom: 36px; color: rgba(255,255,255,.82); font-size: clamp(17px, 2vw, 20px); line-height: 1.65; }
 .hero-actions { display: flex; align-items: center; gap: 28px; }

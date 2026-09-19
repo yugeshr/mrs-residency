@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>MRS Residency CMS</title>
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <main class="login-view" data-login-view>
+    <section class="login-card" aria-labelledby="login-title">
+      <a class="admin-brand" href="/" aria-label="Return to MRS Residency website">
+        <span class="brand-mark">M</span>
+        <span><strong>MRS Residency</strong><small>Website administration</small></span>
+      </a>
+      <div>
+        <p class="eyebrow">Secure access</p>
+        <h1 id="login-title">Welcome back.</h1>
+        <p class="login-copy">Sign in to update rooms, pricing, photos and website content.</p>
+      </div>
+      <form data-login-form>
+        <label>Username<input name="username" autocomplete="username" required></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+        <p class="form-error" data-login-error role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="admin-shell" data-admin-shell hidden>
+    <aside class="sidebar">
+      <a class="admin-brand" href="/">
+        <span class="brand-mark">M</span>
+        <span><strong>MRS Residency</strong><small>Content manager</small></span>
+      </a>
+      <nav aria-label="CMS sections">
+        <a href="#general">General</a>
+        <a href="#hero">Hero</a>
+        <a href="#intro">Introduction</a>
+        <a href="#rooms">Rooms &amp; pricing</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+        <a href="#cta">Call to action</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" rel="noopener">View website <span aria-hidden="true">↗</span></a>
+        <button type="button" data-logout>Sign out</button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <div><p class="eyebrow">Website CMS</p><h1>Edit your website</h1></div>
+        <div class="header-actions">
+          <span class="save-state" data-save-state>All changes saved</span>
+          <button class="primary-button" type="button" data-save>Save changes</button>
+        </div>
+      </header>
+      <div class="editor" data-editor></div>
+    </main>
+  </div>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+  <script src="/admin/admin.js" defer></script>
+</body>
+</html>
