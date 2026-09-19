@@ -38,12 +38,22 @@ const setHref = (selector, value) => {
 };
 
 function applySiteContent(content) {
-  const { meta, hotel, hero, intro, rooms, gallery, amenities, location, cta } = content;
+  const { meta, hotel, hero, intro, rooms, gallery, amenities, location, faq, cta } = content;
+  const absoluteUrl = (value) => new URL(value, meta.canonicalUrl).href;
 
   document.title = meta.title;
   document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', meta.title);
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', meta.description);
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', meta.canonicalUrl);
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', absoluteUrl(meta.socialImage));
+  document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', meta.socialImageAlt);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', meta.title);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', meta.description);
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', absoluteUrl(meta.socialImage));
+  document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', meta.socialImageAlt);
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', meta.canonicalUrl);
+  document.querySelectorAll('link[rel="alternate"]').forEach((link) => link.setAttribute('href', meta.canonicalUrl));
   document.querySelectorAll('.brand strong').forEach((element) => { element.textContent = hotel.name; });
   document.querySelectorAll('.brand small').forEach((element) => { element.textContent = hotel.subtitle; });
 
@@ -123,6 +133,13 @@ function applySiteContent(content) {
   const mapsLink = document.querySelector('.location-copy .text-link');
   mapsLink.href = hotel.mapsUrl;
 
+  setText('.faq .section-kicker', faq.kicker);
+  setText('.faq h2', faq.title);
+  setText('.faq .lead', faq.description);
+  document.querySelector('.faq-list').innerHTML = faq.items.map((item) => `<details>
+    <summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p>
+  </details>`).join('');
+
   setText('.cta .section-kicker', cta.kicker);
   setText('.cta h2', cta.title);
   setText('.cta p:not(.section-kicker)', cta.description);
@@ -130,6 +147,64 @@ function applySiteContent(content) {
   const footerContact = document.querySelector('.footer-grid > div:nth-child(2)');
   footerContact.innerHTML = `<h2>Contact</h2><a href="tel:${escapeHtml(hotel.phoneLink)}">${escapeHtml(hotel.phone)}</a><a href="mailto:${escapeHtml(hotel.email)}">${escapeHtml(hotel.email)}</a>`;
   document.querySelector('.footer-grid > div:nth-child(3) p').textContent = hotel.address;
+
+  const numericRoomPrices = rooms.items
+    .map((room) => Number(room.price.replace(/[^0-9]/g, '')))
+    .filter((price) => Number.isFinite(price) && price > 0);
+  const hotelSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Hotel',
+    '@id': `${meta.canonicalUrl}#hotel`,
+    name: hotel.fullName || `${hotel.name} Residency`,
+    url: meta.canonicalUrl,
+    description: meta.description,
+    telephone: hotel.phoneLink,
+    email: hotel.email,
+    image: gallery.images.slice(0, 8).map((image) => absoluteUrl(image.src)),
+    priceRange: numericRoomPrices.length
+      ? `₹${Math.min(...numericRoomPrices).toLocaleString('en-IN')}–₹${Math.max(...numericRoomPrices).toLocaleString('en-IN')}`
+      : undefined,
+    hasMap: hotel.mapsUrl,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'No. 57, Mela Perumal Maistry Street',
+      addressLocality: 'Madurai',
+      addressRegion: 'Tamil Nadu',
+      postalCode: '625001',
+      addressCountry: 'IN'
+    },
+    amenityFeature: amenities.items.map((item) => ({
+      '@type': 'LocationFeatureSpecification', name: item.title, value: true
+    })),
+    checkinTime: '12:15',
+    checkoutTime: '12:00',
+    makesOffer: rooms.items.map((room) => ({
+      '@type': 'Offer',
+      priceCurrency: 'INR',
+      price: room.price.replace(/[^0-9]/g, ''),
+      url: hotel.bookingUrl,
+      itemOffered: { '@type': 'HotelRoom', name: room.name, description: room.description }
+    }))
+  };
+  document.querySelector('#hotel-schema').textContent = JSON.stringify(hotelSchema);
+  document.querySelector('#website-schema').textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${meta.canonicalUrl}#website`,
+    url: meta.canonicalUrl,
+    name: `${hotel.fullName || hotel.name} Madurai`,
+    inLanguage: 'en-IN',
+    publisher: { '@id': `${meta.canonicalUrl}#hotel` }
+  });
+  document.querySelector('#faq-schema').textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
+  });
 }
 
 function initializeCarousels() {
@@ -208,6 +283,10 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+}
+
+if (window.location.hash) {
+  document.getElementById(window.location.hash.slice(1))?.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
 }
 
 fetch('/content/site.json')

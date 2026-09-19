@@ -128,10 +128,16 @@ function stringCollection(path, singularName) {
 
 function renderEditor() {
   editor.innerHTML = [
+    panel('seo', 'SEO & sharing', 'Control how the homepage appears in search engines and social shares.', `<div class="field-grid">
+      ${textField('meta.title', 'Search title', { wide: true, help: 'Aim for a clear title around 50–60 characters.' })}
+      ${textField('meta.description', 'Search description', { wide: true, textarea: true, help: 'Describe the hotel and location naturally in about 150–160 characters.' })}
+      ${textField('meta.canonicalUrl', 'Canonical website URL', { wide: true, type: 'url' })}
+      ${imageField('meta.socialImage', 'Social sharing image')}
+      ${textField('meta.socialImageAlt', 'Social image description', { wide: true })}
+    </div>`),
     panel('general', 'General settings', 'Hotel identity, contact details and booking destinations.', `<div class="field-grid">
-      ${textField('meta.title', 'Browser and search title', { wide: true })}
-      ${textField('meta.description', 'Search description', { wide: true, textarea: true })}
       ${textField('hotel.name', 'Brand name')}
+      ${textField('hotel.fullName', 'Full hotel name')}
       ${textField('hotel.subtitle', 'Brand subtitle')}
       ${textField('hotel.phone', 'Display phone')}
       ${textField('hotel.phoneLink', 'Phone number for calls')}
@@ -188,6 +194,13 @@ function renderEditor() {
       <div class="field-wide collection">${simpleCollection('location.distances', [{ key: 'place', label: 'Place' }, { key: 'distance', label: 'Distance' }], 'Landmark')}</div>
       <button class="secondary-button add-button" type="button" data-action="add" data-collection="location.distances">Add landmark</button>
     </div>`),
+    panel('faq', 'Frequently asked questions', 'Helpful answers shown on the website and included in search markup.', `<div class="field-grid">
+      ${textField('faq.kicker', 'Kicker')}
+      ${textField('faq.title', 'Heading')}
+      ${textField('faq.description', 'Description', { wide: true, textarea: true })}
+      <div class="field-wide collection">${simpleCollection('faq.items', [{ key: 'question', label: 'Question', options: { wide: true } }, { key: 'answer', label: 'Answer', options: { wide: true, textarea: true } }], 'Question')}</div>
+      <button class="secondary-button add-button" type="button" data-action="add" data-collection="faq.items">Add question</button>
+    </div>`),
     panel('cta', 'Call to action', 'The final booking message before the footer.', `<div class="field-grid">
       ${textField('cta.kicker', 'Kicker')}
       ${textField('cta.title', 'Heading')}
@@ -226,7 +239,8 @@ const newItems = {
   'rooms.items': () => ({ name: 'New room', description: '2 guests', price: '₹0', image: 'assets/images/IMG-20230507-WA0012.jpg', imageAlt: 'Guest room at MRS Residency', featured: false }),
   'gallery.images': () => ({ src: 'assets/images/IMG-20230507-WA0012.jpg', alt: 'MRS Residency', label: 'Hotel', caption: 'MRS Residency' }),
   'amenities.items': () => ({ title: 'New amenity', description: 'Describe this amenity.' }),
-  'location.distances': () => ({ place: 'Nearby place', distance: '0 min' })
+  'location.distances': () => ({ place: 'Nearby place', distance: '0 min' }),
+  'faq.items': () => ({ question: 'New question', answer: 'Add a helpful answer.' })
 };
 
 function handleCollectionAction(button) {

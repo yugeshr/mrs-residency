@@ -1,10 +1,14 @@
 {
   "meta": {
-    "title": "MRS Residency Madurai | Hotel Near Meenakshi Temple & Railway Station",
-    "description": "Stay at MRS Residency in central Madurai, close to Meenakshi Amman Temple, Madurai Junction and Periyar Bus Stand. Comfortable AC and non-AC rooms with 24-hour front desk support."
+    "title": "MRS Residency Madurai | Near Meenakshi Temple & Station",
+    "description": "Book comfortable AC and non-AC rooms at MRS Residency in central Madurai, near Meenakshi Amman Temple, Madurai Junction and Periyar Bus Stand.",
+    "canonicalUrl": "https://www.mrsresidency.com/",
+    "socialImage": "assets/madurai-temple.jpg",
+    "socialImageAlt": "Meenakshi Amman Temple near MRS Residency in Madurai"
   },
   "hotel": {
     "name": "MRS",
+    "fullName": "MRS Residency",
     "subtitle": "Residency · Madurai",
     "phone": "+91 79046 68686",
     "phoneLink": "+917904668686",
@@ -108,6 +112,33 @@
       { "place": "Periyar Bus Stand", "distance": "3 min walk" },
       { "place": "Madurai Junction", "distance": "7 min walk" },
       { "place": "Thirumalai Nayakkar Mahal", "distance": "2 km" }
+    ]
+  },
+  "faq": {
+    "kicker": "Good to know",
+    "title": "Frequently asked questions.",
+    "description": "Quick answers to help you plan your stay in Madurai.",
+    "items": [
+      {
+        "question": "How far is MRS Residency from Meenakshi Amman Temple?",
+        "answer": "MRS Residency is approximately an 8-minute walk from Meenakshi Amman Temple."
+      },
+      {
+        "question": "How far is the hotel from Madurai Junction?",
+        "answer": "Madurai Junction railway station is approximately a 7-minute walk from the hotel."
+      },
+      {
+        "question": "Does MRS Residency have AC and non-AC rooms?",
+        "answer": "Yes. Guests can choose from deluxe and non-deluxe rooms in both AC and non-AC options."
+      },
+      {
+        "question": "What are the check-in and check-out times?",
+        "answer": "Check-in is from 12:15 PM and check-out is by 12:00 PM."
+      },
+      {
+        "question": "How can I book a room?",
+        "answer": "You can book online, call +91 79046 68686, or contact the hotel through WhatsApp to check availability."
+      }
     ]
   },
   "cta": {

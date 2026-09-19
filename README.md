@@ -44,3 +44,9 @@ For the GitHub token, grant access only to `yugeshr/mrs-residency` and enable **
 ## Development
 
 The public site can be previewed with any static file server. The authentication, save and upload endpoints use Vercel Functions, so run `vercel dev` when testing the full CMS locally.
+
+## SEO
+
+The homepage includes a canonical URL for `https://www.mrsresidency.com/`, regional language annotations, Open Graph and Twitter metadata, Hotel/WebSite/FAQ structured data, descriptive image text, a visible FAQ section, and an image sitemap. SEO titles, descriptions, social images and FAQs can be updated in the CMS.
+
+After deployment, add the `https://www.mrsresidency.com/` domain property to Google Search Console, submit `https://www.mrsresidency.com/sitemap.xml`, and request indexing for the homepage. Keep the Google Business Profile name, address, phone number and website URL identical to the website details.

@@ -11,14 +11,15 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid site content' });
   }
 
-  const requiredSections = ['meta', 'hotel', 'hero', 'intro', 'rooms', 'gallery', 'amenities', 'location', 'cta'];
+  const requiredSections = ['meta', 'hotel', 'hero', 'intro', 'rooms', 'gallery', 'amenities', 'location', 'faq', 'cta'];
   const requiredCollections = [
     content.hero?.facts,
     content.intro?.highlights,
     content.rooms?.items,
     content.gallery?.images,
     content.amenities?.items,
-    content.location?.distances
+    content.location?.distances,
+    content.faq?.items
   ];
   if (requiredSections.some((section) => !content[section] || typeof content[section] !== 'object') || requiredCollections.some((collection) => !Array.isArray(collection))) {
     return res.status(400).json({ error: 'One or more required content sections are missing' });

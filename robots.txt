@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 Disallow: /api
 
-Sitemap: https://mrs-residency-madurai.vercel.app/sitemap.xml
+Sitemap: https://www.mrsresidency.com/sitemap.xml

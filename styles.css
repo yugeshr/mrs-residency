@@ -142,6 +142,15 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
 .distance-list span { color: rgba(255,255,255,.68); }
 .distance-list strong { font-size: 14px; }
 
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary { position: relative; padding: 25px 44px 25px 0; font-weight: 750; line-height: 1.45; list-style: none; cursor: pointer; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; position: absolute; top: 20px; right: 4px; color: var(--brand); font: 400 26px/1 Georgia, serif; transition: transform .25s ease; }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list details p { max-width: 620px; margin: -4px 44px 24px 0; color: var(--muted); }
+
 .cta { text-align: center; background: var(--brand); color: white; }
 .cta-inner { max-width: 900px; }
 .cta .section-kicker { color: #f1d9b0; }
@@ -184,7 +193,7 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
   .quick-facts div { padding-right: 12px; }
   .quick-facts strong { font-size: 20px; }
   .quick-facts span { font-size: 11px; line-height: 1.4; }
-  .intro-grid, .amenities-grid, .location-grid { grid-template-columns: 1fr; gap: 44px; }
+  .intro-grid, .amenities-grid, .location-grid, .faq-grid { grid-template-columns: 1fr; gap: 44px; }
   .room-layout { grid-template-columns: 1fr; }
   .room-list { min-height: 490px; padding: 0; }
   .carousel-slide img { height: min(65vh, 600px); }
