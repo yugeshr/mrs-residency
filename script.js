@@ -72,13 +72,13 @@ function applySiteContent(content) {
   const heroCall = document.querySelector('.hero-actions .text-link');
   if (heroCall) heroCall.innerHTML = `Call ${escapeHtml(hotel.phone)} <span aria-hidden="true">↗</span>`;
   document.querySelector('.quick-facts').innerHTML = hero.facts.map((fact) =>
-    `<div><strong>${escapeHtml(fact.value)}</strong><span>${escapeHtml(fact.label)}</span></div>`
+    `<div role="listitem"><strong>${escapeHtml(fact.value)}</strong><span>${escapeHtml(fact.label)}</span></div>`
   ).join('');
 
   setText('.intro .section-kicker', intro.kicker);
   setText('.intro h2', intro.title);
   setText('.intro .lead', intro.description);
-  document.querySelector('.mini-amenities').innerHTML = intro.highlights.map((item) => `<span>${escapeHtml(item)}</span>`).join('');
+  document.querySelector('.mini-amenities').innerHTML = intro.highlights.map((item) => `<span role="listitem">${escapeHtml(item)}</span>`).join('');
 
   setText('.rooms .section-kicker', rooms.kicker);
   setText('.rooms .section-heading h2', rooms.title);
