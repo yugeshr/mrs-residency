@@ -97,6 +97,31 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
 .room-list .button { margin-top: auto; }
 .rate-note { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
 
+.gallery { overflow: hidden; }
+.gallery-heading { align-items: end; }
+.carousel { position: relative; }
+.carousel-viewport { overflow-x: auto; border-radius: var(--radius); outline: none; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.carousel-viewport::-webkit-scrollbar { display: none; }
+.carousel-viewport:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+.carousel-track { display: flex; }
+.carousel-slide { position: relative; min-width: 100%; margin: 0; scroll-snap-align: start; background: #241e1a; }
+.carousel-slide::after { content: ""; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, rgba(12,9,7,.82)); pointer-events: none; }
+.carousel-slide img { width: 100%; height: min(70vh, 720px); object-fit: cover; }
+.carousel-slide figcaption { position: absolute; z-index: 2; inset: auto 38px 34px; display: grid; gap: 5px; color: white; }
+.carousel-slide figcaption span { color: #f1d9b0; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.carousel-slide figcaption strong { font: 500 clamp(24px, 3vw, 38px)/1.15 Georgia, serif; }
+.carousel-arrow { position: absolute; z-index: 3; top: calc(50% - 34px); width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; color: white; background: rgba(23,21,19,.5); backdrop-filter: blur(10px); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.carousel-arrow:hover { background: var(--brand); transform: scale(1.05); }
+.carousel-arrow span { font-size: 22px; line-height: 1; }
+.carousel-arrow-prev { left: 24px; }
+.carousel-arrow-next { right: 24px; }
+.carousel-footer { min-height: 38px; margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.carousel-count { margin: 0; color: var(--muted); font: 500 14px/1 Georgia, serif; letter-spacing: .12em; }
+.carousel-count [data-carousel-current] { color: var(--ink); font-size: 21px; }
+.carousel-dots { display: flex; align-items: center; gap: 8px; }
+.carousel-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .25s ease, background .25s ease; }
+.carousel-dot.active { width: 28px; background: var(--brand); }
+
 .amenities-grid { display: grid; grid-template-columns: .9fr 1.2fr; gap: 100px; }
 .amenity-list { border-top: 1px solid var(--line); }
 .amenity-list > div { padding: 26px 0; display: grid; grid-template-columns: 56px 1fr 1.1fr; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); }
@@ -161,6 +186,7 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
   .intro-grid, .amenities-grid, .location-grid { grid-template-columns: 1fr; gap: 44px; }
   .room-layout { grid-template-columns: 1fr; }
   .room-list { min-height: 490px; padding: 0; }
+  .carousel-slide img { height: min(65vh, 600px); }
   .location-grid { gap: 68px; }
   .location-photo { max-width: 580px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -186,6 +212,11 @@ h2 { margin-bottom: 28px; font-size: clamp(46px, 6vw, 76px); }
   .room-feature-copy { inset: auto 22px 22px; align-items: start; flex-direction: column; gap: 18px; }
   .room-feature h3 { font-size: 30px; }
   .room-price { text-align: left; display: flex; align-items: baseline; gap: 6px; }
+  .carousel-slide img { height: 480px; }
+  .carousel-slide figcaption { inset: auto 22px 24px; }
+  .carousel-arrow { top: calc(50% - 28px); width: 44px; height: 44px; }
+  .carousel-arrow-prev { left: 12px; }
+  .carousel-arrow-next { right: 12px; }
   .amenity-list > div { grid-template-columns: 38px 1fr; }
   .amenity-list p { grid-column: 2; }
   .location-photo span { left: -8px; }
